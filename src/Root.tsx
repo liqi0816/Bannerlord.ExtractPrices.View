@@ -35,7 +35,7 @@ export const Root: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Stack direction={'column'} flexWrap={'nowrap'} minHeight={'100vh'}>
+            <Stack direction={'column'} flexWrap={'nowrap'} height={{ md: '100vh' }} overflow={{ md: 'hidden' }}>
                 <AppBar position={'relative'}>
                     <Toolbar sx={{ gap: 1 }}>
                         <Typography variant={'h6'} color={'inherit'} noWrap flexGrow={1}>
@@ -52,14 +52,14 @@ export const Root: React.FC = () => {
                 <Stack
                     component={'main'}
                     direction={{ xs: 'column', md: 'row' }}
+                    overflow={{ md: 'hidden' }}
                     flexWrap={'nowrap'}
                     flexGrow={1}
                     justifyContent={'start'}
-                    paddingX={{ xs: 1, md: 10 }}
-                    paddingY={{ md: 2 }}
-                    gap={2}
+                    padding={2}
+                    gap={1}
                 >
-                    <Controls drilling={drilling} flexBasis={'min(30%, 400px)'} />
+                    <Controls drilling={drilling} flexBasis={'min(30%, 400px)'} overflow={'auto'} paddingRight={0.5} />
                     <Plot drilling={drilling} />
                 </Stack>
             </Stack>
