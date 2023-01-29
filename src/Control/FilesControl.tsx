@@ -9,6 +9,7 @@ interface Props {
     setPrices: React.Dispatch<React.SetStateAction<Price[]>>;
 }
 
+/** @todo find out why this item is bugged (has two entries in csv) */
 const EXCLUDED_ITEMS = new Set<string>(['{=DlPOte0H}Pack Camel']);
 
 /**
@@ -32,8 +33,8 @@ async function readCsv(file: File | undefined) {
     return content.filter(Boolean).map(row => {
         const ret: Record<string, string | undefined> = {};
         const split = row.split(',');
-        for (let i = 0; i < columns.length; i++) {
-            ret[columns[i]!] = split[i];
+        for (const [i, name] of columns.entries()) {
+            ret[name] = split[i];
         }
         return ret;
     });

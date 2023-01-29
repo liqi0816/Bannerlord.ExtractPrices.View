@@ -4,7 +4,7 @@ import { RootDrilling } from '../Root';
 
 export const PlannerControl: React.FC<Pick<RootDrilling, 'setScreen'>> = ({ setScreen }) => {
     return (
-        <Stack direction={'column'} gap={0.5} display={'none'}>
+        <Stack direction={'column'} gap={0.5}>
             <TextField label={'Capacity'} variant={'outlined'} type={'number'} />
             <Button variant={'contained'} onClick={() => setScreen({ type: 'planner' })}>
                 Plan Route

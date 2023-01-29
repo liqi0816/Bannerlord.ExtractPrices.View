@@ -17,7 +17,7 @@ export class PlotErrorBoundary extends React.Component<React.PropsWithChildren> 
             return (
                 <>
                     <Typography variant={'h4'} color={'error'}>
-                        Error!
+                        Error:
                     </Typography>
                     <Typography variant={'caption'} color={'error'} sx={{ whiteSpace: 'pre-wrap' }}>
                         {error.stack}
