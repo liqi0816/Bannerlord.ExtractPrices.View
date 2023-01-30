@@ -89,9 +89,9 @@ export const FilesControl: React.FC<Props> = ({ setTowns, setItems, setPrices })
             alignItems={'baseline'}
         >
             <Typography>town.csv</Typography>
-            <Input type={'file'} color={townsCallback.error ? 'error' : undefined} onChange={townsCallback.execute} />
+            <Input type={'file'} error={!!townsCallback.error} onChange={townsCallback.execute} />
             <Typography>price-XXXX-XX.csv</Typography>
-            <Input type={'file'} color={pricesCallback.error ? 'error' : undefined} onChange={pricesCallback.execute} />
+            <Input type={'file'} error={!!pricesCallback.error} onChange={pricesCallback.execute} />
         </Box>
     );
 };

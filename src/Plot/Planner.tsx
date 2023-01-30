@@ -1,7 +1,8 @@
-import { Trans } from '@lingui/macro';
-import { Stack, Typography } from '@mui/material';
+import { t, Trans } from '@lingui/macro';
+import { Stack, TextField, Typography } from '@mui/material';
 import { Annotations } from 'plotly.js';
 import React from 'react';
+import { createPortal } from 'react-dom';
 import Plot from 'react-plotly.js';
 import * as business from '../business';
 import { RootDrilling } from '../Root';
@@ -11,7 +12,7 @@ import * as util from './util';
 interface Props extends Pick<RootDrilling, 'towns' | 'items' | 'prices'> {
     width: number;
     height: number;
-    capacity: number;
+    portal: React.MutableRefObject<HTMLDivElement | undefined>;
 }
 
 function* split(str: unknown, size: number = 30) {
@@ -66,17 +67,34 @@ function useSyncHashableObject<T>(object: T, calcHash: (object: T) => unknown) {
     return React.useCallback((object: T) => setHash(ref.current?.(object)), []);
 }
 
-interface PlannerRouteInformationProps extends Pick<RootDrilling, 'towns' | 'items'>, React.ComponentProps<typeof Stack> {
+interface PlannerRouteInformationProps extends Pick<RootDrilling, 'towns' | 'items'> {
     route: business.TradeRoute;
-    setRoute: React.Dispatch<React.SetStateAction<business.TradeRoute>>;
+    setRoute: React.Dispatch<React.SetStateAction<PlannerRouteInformationProps['route']>>;
+    capacity: number;
+    setCapacity: React.Dispatch<React.SetStateAction<PlannerRouteInformationProps['capacity']>>;
 }
 
-const PlannerRouteInformation: React.FC<PlannerRouteInformationProps> = ({ towns, items, route, setRoute, ...props }) => {
+const RouteControl: React.FC<PlannerRouteInformationProps> = ({ towns, items, route, setRoute, capacity, setCapacity }) => {
+    const ref = React.useRef<HTMLElement>();
+    React.useEffect(() => void ref.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), []);
     return (
-        <Stack direction={'column'} bgcolor={'rgba(255,255,255,0.5)'} {...props}>
-            {route.waypoints.map(({ inventoryBeforeTrade, marketBeforeTrade, town }) => (
+        <Stack direction={'column'} gap={0.25} minHeight={'50vh'} marginTop={2} ref={ref}>
+            <TextField
+                label={t`Capacity`}
+                variant={'outlined'}
+                type={'number'}
+                value={capacity}
+                inputProps={{ step: 100 }}
+                onChange={({ target }) => setCapacity(Number(target.value))}
+            />
+            {route.waypoints.length === 0 && (
+                <Typography color={'primary.main'}>
+                    <Trans>Click on a town to add a waypoint</Trans>
+                </Typography>
+            )}
+            {route.waypoints.map(({ inventoryBeforeTrade, marketBeforeTrade, town }, key) => (
                 <>
-                    <Typography>
+                    <Typography key={`${key}.inventoryBeforeTrade`} color={'secondary.main'}>
                         <Trans>
                             {'Inventory: '}
                             {inventoryBeforeTrade
@@ -84,7 +102,7 @@ const PlannerRouteInformation: React.FC<PlannerRouteInformationProps> = ({ towns
                                 .join(',')}
                         </Trans>
                     </Typography>
-                    <Typography>
+                    <Typography key={`${key}.town`} color={'primary.main'}>
                         <Trans>
                             To: {nonNull(towns[town]).name} {'profit '}
                             {business.calcProfitAtMarket(marketBeforeTrade, inventoryBeforeTrade)}
@@ -96,8 +114,9 @@ const PlannerRouteInformation: React.FC<PlannerRouteInformationProps> = ({ towns
     );
 };
 
-export const Planner: React.FC<Props> = ({ towns, items, prices, width, height, capacity }) => {
+export const Planner: React.FC<Props> = ({ towns, items, prices, width, height, portal }) => {
     const { x, y, z, annotations, specialities } = React.useMemo(() => getData(towns, items, prices), [towns, items, prices]);
+    const [capacity, setCapacity] = React.useState<number>(500);
     const [route, setRoute] = React.useState(() => new business.TradeRoute());
     const syncRoute = useSyncHashableObject(route, route => route.waypoints.length);
     return (
@@ -134,17 +153,18 @@ export const Planner: React.FC<Props> = ({ towns, items, prices, width, height, 
                     syncRoute(route);
                 }}
             />
-            <Stack position={'relative'} alignSelf={'stretch'}>
-                <PlannerRouteInformation
-                    towns={towns}
-                    items={items}
-                    route={route}
-                    setRoute={setRoute}
-                    position={'absolute'}
-                    left={0}
-                    bottom={0}
-                />
-            </Stack>
+            {portal.current &&
+                createPortal(
+                    <RouteControl
+                        towns={towns}
+                        items={items}
+                        route={route}
+                        setRoute={setRoute}
+                        capacity={capacity}
+                        setCapacity={setCapacity}
+                    />,
+                    portal.current
+                )}
         </>
     );
 };

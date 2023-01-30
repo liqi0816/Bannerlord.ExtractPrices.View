@@ -17,7 +17,7 @@ type Screen =
       }
     | {
           type: 'planner';
-          capacity: number;
+          portal: React.MutableRefObject<HTMLDivElement | undefined>;
       }
     | undefined;
 

@@ -25,19 +25,23 @@ msgstr "2. 探索物流"
 msgid "3. Plan a route"
 msgstr "3. 规划商路"
 
-#: src/Control/PlannerControl.tsx:11
+#: src/Plot/Planner.tsx:83
 msgid "Capacity"
 msgstr "负重"
+
+#: src/Plot/Planner.tsx:92
+msgid "Click on a town to add a waypoint"
+msgstr "点击城镇以添加到商路"
 
 #: src/Control/index.tsx:47
 msgid "Find the maximal profit possible given a town sequence."
 msgstr "找到一条商路上的最大利润。"
 
-#: src/Plot/Planner.tsx:80
+#: src/Plot/Planner.tsx:98
 msgid "Inventory: {0}"
 msgstr "物品栏: {0}"
 
-#: src/Control/PlannerControl.tsx:19
+#: src/Control/PlannerControl.tsx:11
 msgid "Plan Route"
 msgstr "规划路线"
 
@@ -45,11 +49,11 @@ msgstr "规划路线"
 msgid "Price of {0} (MSRP {1})"
 msgstr "{0}的价格 (标准价{1})"
 
-#: src/Plot/Planner.tsx:88
+#: src/Plot/Planner.tsx:106
 msgid "To: {0} profit {1}"
 msgstr "到: {0} 利润 {1}"
 
-#: src/Plot/Planner.tsx:106
+#: src/Plot/Planner.tsx:125
 msgid "Total Goods Value/Shortage/Surplus"
 msgstr "总商品价值/短缺/过剩"
 
