@@ -25,12 +25,12 @@ export interface Price {
     ask: number;
     /** total quantity available in town */
     quantity: number;
-    /** a parameter in the pricing model, partly depends on `fulfilled` at previous day */
+    /** a parameter in the pricing model, partly depends on `delivered` at previous day */
     supply: number;
     /** a parameter in the pricing model, partly depends on town prosperity */
     demand: number;
     /** a parameter in the pricing model, equals `quantity` * `msrp` summed up for the item category */
-    fulfilled: number;
+    delivered: number;
 }
 
 export function assert(condition: unknown): asserts condition {

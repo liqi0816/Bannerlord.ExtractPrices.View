@@ -1,15 +1,17 @@
+import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
 import type { Annotations } from 'plotly.js';
 import React from 'react';
 import Plot from 'react-plotly.js';
+import * as business from '../business';
 import { RootDrilling } from '../Root';
 import { ItemId, nonNull } from '../types';
-import * as business from './business';
+import * as util from './util';
 
 interface Props extends Pick<RootDrilling, 'towns' | 'items' | 'prices'> {
-    id: ItemId;
     width: number;
     height: number;
+    id: ItemId;
 }
 
 function getData(itemPrices: Props['prices'], towns: Props['towns']) {
@@ -34,7 +36,7 @@ function getData(itemPrices: Props['prices'], towns: Props['towns']) {
             )}`,
         };
     }
-    const boundaryPointgs = business.getBoundaryPoints(
+    const boundaryPointgs = util.getBoundaryPoints(
         x.subarray(0, itemPrices.length),
         y.subarray(0, itemPrices.length),
         z.subarray(0, itemPrices.length)
@@ -54,7 +56,9 @@ export const Contour: React.FC<Props> = ({ id, towns, items, prices, width, heig
     return (
         <>
             <Typography lineHeight={'16px'} marginBottom={'4px'}>
-                Price of {item.name} (MSRP {item.msrp})
+                <Trans>
+                    Price of {item.name} (MSRP {item.msrp})
+                </Trans>
             </Typography>
             <Plot
                 data={[

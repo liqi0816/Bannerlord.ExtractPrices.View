@@ -9,9 +9,6 @@ interface Props {
     setPrices: React.Dispatch<React.SetStateAction<Price[]>>;
 }
 
-/** @todo find out why this item is bugged (has two entries in csv) */
-const EXCLUDED_ITEMS = new Set<string>(['{=DlPOte0H}Pack Camel']);
-
 /**
  * Use the brower to guess encoding. REQUIRES user guesture.
  */
@@ -61,7 +58,9 @@ export const FilesControl: React.FC<Props> = ({ setTowns, setItems, setPrices })
         const prices: Price[] = [];
         for (const row of await readCsv(file)) {
             const id = nonNull(row['Item']);
-            if (EXCLUDED_ITEMS.has(id)) continue;
+            if (items[id] && items[id]?.msrp !== Number(nonNull(row['MSRP']))) {
+                continue;
+            }
             items[id] = {
                 id,
                 name: nonNull(row['Name']),
@@ -75,7 +74,7 @@ export const FilesControl: React.FC<Props> = ({ setTowns, setItems, setPrices })
                 quantity: Number(nonNull(row['Quantity'])),
                 supply: Number(nonNull(row['Supply'])),
                 demand: Number(nonNull(row['Demand'])),
-                fulfilled: Number(nonNull(row['Fulfilled'])),
+                delivered: Number(nonNull(row['Delivered'])),
             });
         }
         setItems(items);

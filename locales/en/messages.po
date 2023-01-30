@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-01-30 00:09-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/Control/index.tsx:19
+msgid "1. Extract data"
+msgstr "1. Extract data"
+
+#: src/Control/index.tsx:37
+msgid "2. Explore the flow"
+msgstr "2. Explore the flow"
+
+#: src/Control/index.tsx:44
+msgid "3. Plan a route"
+msgstr "3. Plan a route"
+
+#: src/Control/PlannerControl.tsx:11
+msgid "Capacity"
+msgstr "Capacity"
+
+#: src/Control/index.tsx:47
+msgid "Find the maximal profit possible given a town sequence."
+msgstr "Find the maximal profit possible given a town sequence."
+
+#: src/Plot/Planner.tsx:80
+msgid "Inventory: {0}"
+msgstr "Inventory: {0}"
+
+#: src/Control/PlannerControl.tsx:19
+msgid "Plan Route"
+msgstr "Plan Route"
+
+#: src/Plot/Contour.tsx:59
+msgid "Price of {0} (MSRP {1})"
+msgstr "Price of {0} (MSRP {1})"
+
+#: src/Plot/Planner.tsx:88
+msgid "To: {0} profit {1}"
+msgstr "To: {0} profit {1}"
+
+#: src/Plot/Planner.tsx:106
+msgid "Total Goods Value/Shortage/Surplus"
+msgstr "Total Goods Value/Shortage/Surplus"
+
+#: src/Control/index.tsx:40
+msgid "View the prices of an item across the continent."
+msgstr "View the prices of an item across the continent."
+
+#: src/Control/index.tsx:22
+msgid "With <0>Bannerlord.ExtractPrices</0>they will be generated at <1>\\Mount & Blade II Bannerlord\\Modules\\Bannerlord.ExtractPrices</1><2/>Loaded: {0}towns and {1}items."
+msgstr "With <0>Bannerlord.ExtractPrices</0>they will be generated at <1>\\Mount & Blade II Bannerlord\\Modules\\Bannerlord.ExtractPrices</1><2/>Loaded: {0}towns and {1}items."

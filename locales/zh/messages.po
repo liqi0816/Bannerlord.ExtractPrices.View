@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-01-30 00:09-0500\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/Control/index.tsx:19
+msgid "1. Extract data"
+msgstr "1. 提取数据"
+
+#: src/Control/index.tsx:37
+msgid "2. Explore the flow"
+msgstr "2. 探索物流"
+
+#: src/Control/index.tsx:44
+msgid "3. Plan a route"
+msgstr "3. 规划商路"
+
+#: src/Control/PlannerControl.tsx:11
+msgid "Capacity"
+msgstr "负重"
+
+#: src/Control/index.tsx:47
+msgid "Find the maximal profit possible given a town sequence."
+msgstr "找到一条商路上的最大利润。"
+
+#: src/Plot/Planner.tsx:80
+msgid "Inventory: {0}"
+msgstr "物品栏: {0}"
+
+#: src/Control/PlannerControl.tsx:19
+msgid "Plan Route"
+msgstr "规划路线"
+
+#: src/Plot/Contour.tsx:59
+msgid "Price of {0} (MSRP {1})"
+msgstr "{0}的价格 (标准价{1})"
+
+#: src/Plot/Planner.tsx:88
+msgid "To: {0} profit {1}"
+msgstr "到: {0} 利润 {1}"
+
+#: src/Plot/Planner.tsx:106
+msgid "Total Goods Value/Shortage/Surplus"
+msgstr "总商品价值/短缺/过剩"
+
+#: src/Control/index.tsx:40
+msgid "View the prices of an item across the continent."
+msgstr "查看一件物品在大陆上的价格。"
+
+#: src/Control/index.tsx:22
+msgid "With <0>Bannerlord.ExtractPrices</0>they will be generated at <1>\\Mount & Blade II Bannerlord\\Modules\\Bannerlord.ExtractPrices</1><2/>Loaded: {0}towns and {1}items."
+msgstr "使用<0>Bannerlord.ExtractPrices</0>，他们将会被生成在<1>\\Mount & Blade II Bannerlord\\Modules\\Bannerlord.ExtractPrices</1><2/>已载入: {0}城镇 和 {1}物品。"

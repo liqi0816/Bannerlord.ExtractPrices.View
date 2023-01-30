@@ -14,7 +14,7 @@ const PlotContent: React.FC<{
         case 'contour':
             return <Contour id={drilling.screen.id} width={width} height={height} {...drilling} />;
         case 'planner':
-            return <Planner width={width} height={height} {...drilling} />;
+            return <Planner capacity={drilling.screen.capacity} width={width} height={height} {...drilling} />;
         default:
             return <Typography>Please select a plot</Typography>;
     }
