@@ -7,13 +7,13 @@
     "name": "LI, Qi"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@lingui/react": "^3.16.1",
-    "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.5",
-    "@mui/system": "^5.11.5",
-    "plotly.js": "^2.18.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@lingui/react": "^3.17.1",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.9",
+    "@mui/system": "^5.11.9",
+    "plotly.js": "^2.18.2",
     "react": "^18.2.0",
     "react-async-hook": "^4.0.0",
     "react-dom": "^18.2.0",
@@ -45,13 +45,13 @@
     ]
   },
   "devDependencies": {
-    "@lingui/cli": "^3.16.1",
-    "@lingui/macro": "^3.16.1",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
+    "@lingui/cli": "^3.17.1",
+    "@lingui/macro": "^3.17.1",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "@types/react-plotly.js": "^2.6.0",
     "cross-env": "^7.0.3",
     "react-scripts": "^5.0.1",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   }
 }

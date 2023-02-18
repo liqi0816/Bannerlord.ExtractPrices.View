@@ -7,9 +7,10 @@ import { Planner } from './Planner';
 
 const PlotContent: React.FC<{
     drilling: Pick<RootDrilling, 'towns' | 'items' | 'prices' | 'screen'>;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
 }> = ({ drilling, width, height }) => {
+    if (!width || !height) return null;
     switch (drilling.screen?.type) {
         case 'contour':
             return <Contour id={drilling.screen.id} width={width} height={height} {...drilling} />;
@@ -48,7 +49,9 @@ export const Plot: React.FC<
             {...props}
         >
             <PlotErrorBoundary>
-                {width && height && <PlotContent drilling={drilling} width={width} height={height} />}
+                <React.Suspense>
+                    <PlotContent drilling={drilling} width={width} height={height} />
+                </React.Suspense>
             </PlotErrorBoundary>
         </Stack>
     );

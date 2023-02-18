@@ -2,10 +2,10 @@ import { Trans } from '@lingui/macro';
 import { Typography } from '@mui/material';
 import type { Annotations } from 'plotly.js';
 import React from 'react';
-import Plot from 'react-plotly.js';
 import * as business from '../business';
 import { RootDrilling } from '../Root';
 import { ItemId, nonNull } from '../types';
+import Plot from './LazyPlot';
 import * as util from './util';
 
 interface Props extends Pick<RootDrilling, 'towns' | 'items' | 'prices'> {

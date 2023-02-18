@@ -3,10 +3,10 @@ import { Stack, TextField, Typography } from '@mui/material';
 import { Annotations } from 'plotly.js';
 import React from 'react';
 import { createPortal } from 'react-dom';
-import Plot from 'react-plotly.js';
 import * as business from '../business';
 import { RootDrilling } from '../Root';
 import { nonNull } from '../types';
+import Plot from './LazyPlot';
 import * as util from './util';
 
 interface Props extends Pick<RootDrilling, 'towns' | 'items' | 'prices'> {
